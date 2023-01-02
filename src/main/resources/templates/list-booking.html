@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Booking Directory</title>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h3>Booking Directory</h3>
+    <hr>
+
+    <!-- Add a button -->
+    <a th:href="@{/showBookingFormForAdd}"
+       class="btn btn-primary btn-sm mb-3">
+        Add Booking
+    </a>
+
+
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+
+            <th>Hotel</th>
+            <th>Booked Rooms</th>
+            <th>Number of Persons</th>
+            <th>Price</th>
+            <th>Meal Plan</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="tempBooking : ${booking}">
+            <td th:text="${tempBooking.hotel}" />
+            <td th:text="${tempBooking.bookedRooms}" />
+            <td th:text="${tempBooking.numberOfPersons}" />
+            <td th:text="${tempBooking.price}" />
+            <td th:text="${tempBooking.mealPlan}"/>
+
+
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>
+
+
+

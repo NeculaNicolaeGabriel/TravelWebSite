@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Hotels Directory</title>
+</head>
+
+<body  style="background-color:AntiqueWhite;">
+
+
+<h1>Hotels Directory</h1>
+<hr>
+
+<a th:href="@{/showFormForAddHotel}">
+<button type="button" class="btn btn-info btn-lg">Add Hotel</button>
+</a>
+
+<table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+    <tr>
+        <th>Hotel ID</th>
+        <th>Hotel name</th>
+        <th>City</th>
+        <th>Number Of Rooms</th>
+        <th>Meal Plan</th>
+        <th>Price per night</th>
+        <th>Spa</th>
+        <th>Gym</th>
+        <th>Transfer Airoport</th>
+        <th>Action Update</th>
+        <th>Action Delete</th>
+        <th>Make reservation</th>
+    </tr>
+    </thead>
+
+    <tbody  style="background-color:Cornsilk;">
+    <tr th:each="listHotels : ${hotels}">
+        <td th:text="${listHotels.hotelId}" />
+        <td th:text="${listHotels.hotelName}" />
+        <td th:text="${listHotels.city}" />
+        <td th:text="${listHotels.numberOfRooms}" />
+        <td th:text="${listHotels.mealPlan}" />
+        <td th:text="${listHotels.pricePerNight}" />
+        <td th:text="${listHotels.spa}" />
+        <td th:text="${listHotels.gym}" />
+        <td th:text="${listHotels.transferAiroport}" />
+
+
+        <td>
+
+            <div class="col-small">
+                <!-- Add "update" button/link -->
+                <form action="#" th:action="@{/showFormForUpdateHotel}" method="POST">
+
+                    <input type="hidden" name="hotelId" th:value="${listHotels.hotelId}" />
+                    <button type="submit" class="btn btn-primary btn-sm ml-3 mr-1">Update</button>
+
+                </form>
+            </div>
+        </td>
+        <td>
+            <!--Delete-->
+            <form action="#" th:action="@{/deleteHotel}" method="POST">
+
+                <input type="hidden" name="hotelId" th:value="${listHotels.hotelId}" />
+                <button type="submit" class="btn btn-danger btn-sm"
+                        onclick="if (!(confirm('Are you sure you want to delete this hotel?'))) return false">
+                    Delete
+                </button>
+
+            </form>
+        </td>
+
+<td>
+
+    <div class="col-small">
+        <!-- Add "make booking" button/link -->
+        <form action="#" th:action="@{/showBookingFormForAdd}" method="POST">
+
+            <input type="hidden" name="hotelId" th:value="${listHotels.hotelId}" />
+            <button type="submit" class="btn btn-primary btn-sm ml-3 mr-1">Make Booking</button>
+
+        </form>
+    </div>
+</td>
+
+</form>
+</div>
+
+
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Save Employee</title>
+</head>
+<body style="background-color:AntiqueWhite;">
+
+<div class="container">
+
+    <h3>User Directory</h3>
+    <hr>
+
+    <p class="h4 mb-4">Save Users</p>
+
+    <form action="#" th:action="@{/save}"
+          th:object="${users}" method="POST">
+
+
+
+        <input type="text" th:field="*{username}"
+               class="form-control mb-4 col-4" placeholder="Username">
+
+        <input type="text" th:field="*{password}"
+               class="form-control mb-4 col-4" placeholder="Password">
+
+        <input type="text" th:field="*{cnp}"
+               class="form-control mb-4 col-4" placeholder="CNP">
+
+
+        <button type="submit" class="btn btn-info col-2">Save</button>
+
+    </form>
+
+    <hr>
+    <a th:href="@{/list}">Back to User List</a>
+
+</div>
+</body>
+
+</html>

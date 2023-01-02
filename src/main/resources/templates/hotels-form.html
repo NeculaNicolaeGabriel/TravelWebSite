@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Save Hotels</title>
+</head>
+<body  style="background-color:MediumSeaGreen;">
+
+<div class="container">
+
+    <h3>Hotel Directory</h3>
+    <hr>
+
+    <p class="h4 mb-4">Save Hotel</p>
+
+    <form action="#" th:action="@{/saveHotel}"
+          th:object="${hotels}" method="POST">
+
+        <!-- update-->
+        <imput type = "hidden" th:field="*{hotelId}"/>
+
+
+        <input type="text" th:field="*{hotelName}"
+               class="form-control mb-4 col-4" placeholder="hotelName">
+
+        <input type="text" th:field="*{city}"
+               class="form-control mb-4 col-4" placeholder="city">
+
+        <input type="text" th:field="*{numberOfRooms}"
+               class="form-control mb-4 col-4" placeholder="numberOfRooms">
+
+        <input type="text" th:field="*{mealPlan}"
+               class="form-control mb-4 col-4" placeholder="mealPlan">
+
+        <input type="text" th:field="*{pricePerNight}"
+               class="form-control mb-4 col-4" placeholder="PricePerNight">
+
+        <input type="text" th:field="*{spa}"
+               class="form-control mb-4 col-4" placeholder="spa">
+        <input type="text" th:field="*{gym}"
+               class="form-control mb-4 col-4" placeholder="gym">
+
+        <input type="text" th:field="*{transferAiroport}"
+               class="form-control mb-4 col-4" placeholder="transferAiroport">
+
+
+        <button type="submit" class="btn btn-info col-2">Save</button>
+    </form>
+
+    <hr>
+    <a th:href="@{/hotels}">Back to Hotel List</a>
+
+</div>
+</body>
+
+</html>
